@@ -13,12 +13,14 @@
 		D78DB37B2B25F3720048BC90 /* Result.json in Resources */ = {isa = PBXBuildFile; fileRef = D78DB37A2B25F3720048BC90 /* Result.json */; };
 		D78DB37D2B2602500048BC90 /* ServerResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB37C2B2602500048BC90 /* ServerResponce.swift */; };
 		D78DB3812B26042C0048BC90 /* DBServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB3802B26042C0048BC90 /* DBServise.swift */; };
-		D78DB3852B2641D60048BC90 /* PlainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB3842B2641D60048BC90 /* PlainCollectionViewCell.swift */; };
 		D78DB3872B2642F20048BC90 /* AdvertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB3862B2642F20048BC90 /* AdvertCollectionViewCell.swift */; };
 		D78DB3902B2770420048BC90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB38F2B2770420048BC90 /* AppDelegate.swift */; };
 		D78DB3942B2770930048BC90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB3932B2770930048BC90 /* SceneDelegate.swift */; };
 		D78DB3972B3399900048BC90 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB3962B3399900048BC90 /* UILabel+Ext.swift */; };
 		D78DB39A2B34C4260048BC90 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB3992B34C4260048BC90 /* Metrics.swift */; };
+		D78DB39C2B34D8460048BC90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB39B2B34D8460048BC90 /* NetworkManager.swift */; };
+		D78DB39E2B34E3380048BC90 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB39D2B34E3380048BC90 /* ErrorMessage.swift */; };
+		D78DB3A02B35ED120048BC90 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78DB39F2B35ED120048BC90 /* CustomHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +32,14 @@
 		D78DB37A2B25F3720048BC90 /* Result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Result.json; sourceTree = "<group>"; };
 		D78DB37C2B2602500048BC90 /* ServerResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponce.swift; sourceTree = "<group>"; };
 		D78DB3802B26042C0048BC90 /* DBServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBServise.swift; sourceTree = "<group>"; };
-		D78DB3842B2641D60048BC90 /* PlainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainCollectionViewCell.swift; sourceTree = "<group>"; };
 		D78DB3862B2642F20048BC90 /* AdvertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertCollectionViewCell.swift; sourceTree = "<group>"; };
 		D78DB38F2B2770420048BC90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D78DB3932B2770930048BC90 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = Application/SceneDelegate.swift; sourceTree = "<group>"; };
 		D78DB3962B3399900048BC90 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		D78DB3992B34C4260048BC90 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		D78DB39B2B34D8460048BC90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D78DB39D2B34E3380048BC90 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		D78DB39F2B35ED120048BC90 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +72,11 @@
 		D78DB3612B25DD220048BC90 /* AvitoTestProject */ = {
 			isa = PBXGroup;
 			children = (
-				D78DB3982B34C4100048BC90 /* Constatnts */,
-				D78DB3952B33996A0048BC90 /* Extensions */,
 				D78DB3932B2770930048BC90 /* SceneDelegate.swift */,
 				D78DB38F2B2770420048BC90 /* AppDelegate.swift */,
 				D78DB3822B263F970048BC90 /* View */,
+				D78DB3952B33996A0048BC90 /* Extensions */,
+				D78DB3982B34C4100048BC90 /* Constatnts */,
 				D78DB37F2B2603FF0048BC90 /* Service */,
 				D78DB37E2B2602560048BC90 /* Models */,
 				D78DB3772B25E2480048BC90 /* Resources */,
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				D78DB3802B26042C0048BC90 /* DBServise.swift */,
+				D78DB39B2B34D8460048BC90 /* NetworkManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -119,8 +124,8 @@
 		D78DB3832B263FB20048BC90 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D78DB3842B2641D60048BC90 /* PlainCollectionViewCell.swift */,
 				D78DB3862B2642F20048BC90 /* AdvertCollectionViewCell.swift */,
+				D78DB39F2B35ED120048BC90 /* CustomHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				D78DB3992B34C4260048BC90 /* Metrics.swift */,
+				D78DB39D2B34E3380048BC90 /* ErrorMessage.swift */,
 			);
 			path = Constatnts;
 			sourceTree = "<group>";
@@ -212,13 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78DB39C2B34D8460048BC90 /* NetworkManager.swift in Sources */,
 				D78DB3872B2642F20048BC90 /* AdvertCollectionViewCell.swift in Sources */,
+				D78DB39E2B34E3380048BC90 /* ErrorMessage.swift in Sources */,
 				D78DB3672B25DD220048BC90 /* ViewController.swift in Sources */,
+				D78DB3A02B35ED120048BC90 /* CustomHeaderView.swift in Sources */,
 				D78DB3812B26042C0048BC90 /* DBServise.swift in Sources */,
 				D78DB3902B2770420048BC90 /* AppDelegate.swift in Sources */,
 				D78DB39A2B34C4260048BC90 /* Metrics.swift in Sources */,
 				D78DB37D2B2602500048BC90 /* ServerResponce.swift in Sources */,
-				D78DB3852B2641D60048BC90 /* PlainCollectionViewCell.swift in Sources */,
 				D78DB3972B3399900048BC90 /* UILabel+Ext.swift in Sources */,
 				D78DB3942B2770930048BC90 /* SceneDelegate.swift in Sources */,
 			);

@@ -9,11 +9,10 @@ import UIKit
 
 class AdvertCollectionViewCell: UICollectionViewCell {
     
-
     // MARK: - Variables
     
     static let id = "AdvertCollectionViewCell"
-    private var isCellSelected: Bool = false
+    private let networkManager = NetworkManager()
     
     // MARK: - UI Components
     
@@ -62,6 +61,7 @@ class AdvertCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = Metrics.cellBackgroundColor
@@ -77,9 +77,7 @@ class AdvertCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        checkMarkImageView.isHidden = isSelected && isCellSelected ? false : true
-
+        
         NSLayoutConstraint.activate([
             iconImageView.widthAnchor.constraint(equalToConstant: Metrics.iconSize),
             iconImageView.heightAnchor.constraint(equalToConstant: Metrics.iconSize),
@@ -98,27 +96,45 @@ class AdvertCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    // MARK: - Configuration
+
+    override var isSelected: Bool {
+        willSet {
+            updateState(with: newValue)
+        }
+    }
+    
+    func updateState(with showCheckMark: Bool) {
+        checkMarkImageView.isHidden = showCheckMark ? false : true
+        layoutSubviews()
+    }
+    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
-            layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
         return layoutAttributes
     }
     
-    public func configure(with data: List) {
-        iconImageView.image = UIImage(named: "image 1")
+    func configure(with data: List) {
+        setIconImage(with: data.icon.size)
+        checkMarkImageView.isHidden = data.isSelected && isSelected ? false : true
         titleLabel.text = data.title
         descriptionLabel.text = data.description
         descriptionLabel.setLineSpacing(lineSpacing: 5)
         priceLabel.text = data.price
-        checkMarkImageView.isHidden = true
     }
     
-    public func toggleCheckMark() {
-        isCellSelected.toggle()
-    }
-    
-    public func setDefaultState() {
-        isCellSelected = false
+    private func setIconImage(with data: String) {
+        networkManager.getIconImage(with: data) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.iconImageView.image = UIImage(data: data)
+                }
+            case .failure:
+                print(ErrorMessage.invalidData)
+            }
+        }
     }
     
     override func prepareForReuse() {
@@ -126,7 +142,6 @@ class AdvertCollectionViewCell: UICollectionViewCell {
         titleLabel.text = ""
         descriptionLabel.text = ""
         iconImageView.image = nil
-        checkMarkImageView.image = nil
         priceLabel.text = ""
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 // MARK: - ServerResponce
 struct ServerResponce: Decodable {
     let status: String
-    let result: Results
+    var result: Results
 }
 
 // MARK: - Result
@@ -18,7 +18,7 @@ struct Results: Decodable {
     let title: String
     let actionTitle: String
     let selectedActionTitle: String
-    let list: [List]
+    var list: [List]
 }
 
 // MARK: - List
@@ -28,14 +28,14 @@ struct List: Decodable {
     let description: String?
     let icon: Icon
     let price: String
-    let isSelected: Bool
+    var isSelected: Bool
 }
 
 // MARK: - Icon
 struct Icon: Decodable {
-    let the52X52: String
+    let size: String
 
     enum CodingKeys: String, CodingKey {
-        case the52X52 = "52x52"
+        case size = "52x52"
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Матвей Федышин on 21.12.2023.
 //
 
-import UIKit
+import UIKit.UILabel
 
 extension UILabel {
 
